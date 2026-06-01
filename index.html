@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stabler-Leadbeater Apothecary AR Exhibit</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
+  <body x-data="{ showReadme: false, showHelp: false }" class="bg-gray-100 dark:bg-gray-900 flex items-center justify-center min-h-screen transition-colors">
+    <div class="bg-white dark:bg-gray-800 shadow-lg rounded-2xl p-8 max-w-md text-center space-y-4">
+      <h1 class="text-4xl font-extrabold text-gray-800 dark:text-gray-100">Stabler-Leadbeater Apothecary AR Exhibit</h1>
+      <a
+        href="poppy.html"
+        class="inline-block bg-red-500 hover:bg-red-600 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-700 text-white font-semibold px-6 py-3 rounded-lg transition"
+      >
+        Opium Poppy / Papaver Somniferum
+      </a>
+      <a
+        href="chinchona.html"
+        class="inline-block bg-red-500 hover:bg-red-600 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-700 text-white font-semibold px-6 py-3 rounded-lg transition"
+      >
+        Cinchona (Genus)
+      </a>
+      <a
+        href="bloodroot.html"
+        class="inline-block bg-red-500 hover:bg-red-600 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-700 text-white font-semibold px-6 py-3 rounded-lg transition"
+      >
+        Bloodroot / Sanguinaria Canadensis
+      </a>
+      <a
+        href="snakeroot.html"
+        class="inline-block bg-red-500 hover:bg-red-600 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-700 text-white font-semibold px-6 py-3 rounded-lg transition"
+      >
+        Virginia Snakeroot / Aristolochia Serpentaria
+      </a>
+      <div class="flex justify-center space-x-4">
+        <button @click="showHelp = true" class="flex items-center text-gray-700 dark:text-gray-300 hover:underline">
+          Help
+        </button>
+        <p class="text-gray-700 dark:text-gray-300">|</p>
+        <button @click="showReadme = true" class="flex items-center text-gray-700 dark:text-gray-300 hover:underline">
+          Project Info
+        </button>
+      </div>
+    </div>
+
+    <!-- README Modal -->
+    <div
+      x-show="showReadme"
+      x-transition
+      class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+    >
+      <div @click.away="showReadme = false" class="bg-white dark:bg-gray-800 rounded-xl p-6 max-w-lg mx-4 overflow-y-auto max-h-[80vh]">
+        <h2 class="text-2xl font-bold mb-4 text-gray-800 dark:text-gray-100">Project Details</h2>
+        <p class="mb-2 text-gray-600 dark:text-gray-300"><strong>Stabler-Leadbeater Apothecary AR Project</strong></p>
+        <p class="mb-4 text-gray-600 dark:text-gray-300">This project is an exhibit for the Alexandria Stabler-Leadbeater Apothecary museum, to demonstrate an application of AR into their museum.</p>
+        <h3 class="font-semibold text-gray-800 dark:text-gray-100">Notes:</h3>
+        <ul class="list-disc list-inside mb-4 text-gray-600 dark:text-gray-300">
+          <li>A working webcam/phone camera is needed to view the AR content.</li>
+          <li>A “hiro” preset marker is required to display the AR content.</li>
+          <li>3D models are displayed using the .glb file format.</li>
+        </ul>
+        <button @click="showReadme = false" class="mt-6 bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg">Close</button>
+      </div>
+    </div>
+
+    <!-- Help Modal -->
+    <div
+      x-show="showHelp"
+      x-transition
+      class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+    >
+      <div @click.away="showHelp = false" class="bg-white dark:bg-gray-800 rounded-xl p-6 max-w-lg mx-4 overflow-y-auto max-h-[80vh]">
+        <h2 class="text-2xl font-bold mb-4 text-gray-800 dark:text-gray-100">Help</h2>
+        <h3 class="font-semibold text-gray-800 dark:text-gray-100">Steps:</h3>
+        <ol type="1" class="list-disc list-inside mb-4 text-gray-600 dark:text-gray-300">
+          <li>Click on a medicine</li>
+          <li>Enable camera / motion tracking on your phone</li>
+          <li>Point your camera at the "Hiro" text on the marker</li>
+          <li>Make sure to keep the entire marker in view of your phone camera</li>
+          <li>Keep your phone roughly a foot away</li>
+        </ol>
+        <h3 class="font-semibold text-gray-800 dark:text-gray-100">Quick Fixes:</h3>
+        <ul class="list-disc list-inside text-gray-600 dark:text-gray-300">
+          <li>Make sure camera acess is enabled in your phone setting.</li>
+          <li>Make sure that motion tracking is enabled in your phone settings.</li>
+          <li>Make sure that your phone supports javascript.</li>
+        </ul>
+        <button @click="showHelp = false" class="mt-6 bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg">Close</button>
+      </div>
+    </div>
+  </body>
+</html>
